@@ -455,7 +455,7 @@ model_features = {
 'Curricular units 1st sem (evaluations)',
 'Curricular units 2nd sem (enrolled)',
 'Curricular units 2nd sem (evaluations)',
-'Age']
+'Age'],
     'Random Forest': ['Curricular units 2nd sem (approved)',
 'Curricular units 2nd sem (grade)',
 'Curricular units 1st sem (approved)',
@@ -492,177 +492,176 @@ for feature in model_features[selected_model]:
         selected_option = st.selectbox(f"{feature}:", list(application_mode_option_inverted.keys()))
         value = application_mode_option_inverted[selected_option]  # Guardar el valor numérico correspondiente
     elif feature == 'Course':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(course_option.values()))  # Mostrar descripciones
-    value = [k for k, v in course_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(course_option.values()))  # Mostrar descripciones
+        value = [k for k, v in course_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Daytime/evening attendance':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(attendance_option.values()))  # Mostrar descripciones
-    value = [k for k, v in attendance_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(attendance_option.values()))  # Mostrar descripciones
+        value = [k for k, v in attendance_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Previous qualification':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(previous_qualification_option.values()))  # Mostrar descripciones
-    value = [k for k, v in previous_qualification_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(previous_qualification_option.values()))  # Mostrar descripciones
+        value = [k for k, v in previous_qualification_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Nationality':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(nationality_option.values()))  # Mostrar descripciones
-    value = [k for k, v in nationality_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(nationality_option.values()))  # Mostrar descripciones
+        value = [k for k, v in nationality_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Mothers qualification':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(mothers_qualification_option.values()))  # Mostrar descripciones
-    value = [k for k, v in mothers_qualification_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(mothers_qualification_option.values()))  # Mostrar descripciones
+        value = [k for k, v in mothers_qualification_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Fathers qualification':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(fathers_qualification_option.values()))  # Mostrar descripciones
-    value = [k for k, v in fathers_qualification_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+         selected_option = st.selectbox(f"{feature}:", list(fathers_qualification_option.values()))  # Mostrar descripciones
+         value = [k for k, v in fathers_qualification_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Mothers occupation':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(mothers_occupation_option.values()))  # Mostrar descripciones
-    value = [k for k, v in mothers_occupation_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(mothers_occupation_option.values()))  # Mostrar descripciones
+        value = [k for k, v in mothers_occupation_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Fathers occupation':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(fathers_occupation_option.values()))  # Mostrar descripciones
-    value = [k for k, v in fathers_occupation_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(fathers_occupation_option.values()))  # Mostrar descripciones
+        value = [k for k, v in fathers_occupation_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Displaced':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(displaced_option.values()))  # Mostrar descripciones
-    value = [k for k, v in displaced_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(displaced_option.values()))  # Mostrar descripciones
+        value = [k for k, v in displaced_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Educational special needs':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(educational_special_needs_option.values()))  # Mostrar descripciones
-    value = [k for k, v in educational_special_needs_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(educational_special_needs_option.values()))  # Mostrar descripciones
+        value = [k for k, v in educational_special_needs_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Debtor':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(debtor_option.values()))  # Mostrar descripciones
-    value = [k for k, v in debtor_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(debtor_option.values()))  # Mostrar descripciones
+        value = [k for k, v in debtor_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Tuition fees up to date':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(tuition_fees_option.values()))  # Mostrar descripciones
-    value = [k for k, v in tuition_fees_option.items() if v == selected_option][0]  #
+        selected_option = st.selectbox(f"{feature}:", list(tuition_fees_option.values()))  # Mostrar descripciones
+        value = [k for k, v in tuition_fees_option.items() if v == selected_option][0]  #
     elif feature == 'Gender':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(gender_option.values()))  # Mostrar descripciones
-    value = [k for k, v in gender_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(gender_option.values()))  # Mostrar descripciones
+        value = [k for k, v in gender_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Scholarship holder_1':  # Característica categórica con opciones descriptivas
-    selected_option = st.selectbox(f"{feature}:", list(scholarship_option.values()))  # Mostrar descripciones
-    value = [k for k, v in scholarship_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
+        selected_option = st.selectbox(f"{feature}:", list(scholarship_option.values()))  # Mostrar descripciones
+        value = [k for k, v in scholarship_option.items() if v == selected_option][0]  # Guardar el valor numérico correspondiente
     elif feature == 'Age':  # Característica numérica (Edad)
-    sorted_age_option = sorted(age_option)  # Ordena la lista de edades de forma ascendente
-    selected_age = st.selectbox(f"Selecciona la {feature}:", sorted_age_option)  # Desplegable con valores numéricos ordenados
-    value = selected_age  # El valor seleccionado se guarda directamente como número
+        sorted_age_option = sorted(age_option)  # Ordena la lista de edades de forma ascendente
+        selected_age = st.selectbox(f"Selecciona la {feature}:", sorted_age_option)  # Desplegable con valores numéricos ordenados
+        value = selected_age  # El valor seleccionado se guarda directamente como número
     elif feature == 'International':  # Característica 'International'
-    international_option = {
+        international_option = {
         1: 'Yes',
         0: 'No'
-    }
-    selected_international = st.selectbox(f"Selecciona si el estudiante es internacional:", list(international_option.values()))
-    value = [key for key, val in international_option.items() if val == selected_international][0]  # Obtiene el valor numérico correspondiente
+        }
+        selected_international = st.selectbox(f"Selecciona si el estudiante es internacional:", list(international_option.values()))
+        value = [key for key, val in international_option.items() if val == selected_international][0]  # Obtiene el valor numérico correspondiente
     elif feature == 'Curricular units 1st sem (credited)':  # Característica 'Curricular units 1st sem (credited)'
-    curricular_units_option = [0, 2, 3, 6, 7, 13, 4, 1, 5, 19, 11, 8, 10, 9, 15, 12, 14, 18, 17, 16, 20]
-    curricular_units_option.sort()  # Ordenar la lista de forma ascendente
-    selected_curricular_units = st.selectbox(f"Selecciona el número de unidades curriculares acreditadas en el 1er semestre:", curricular_units_option)
-    value = selected_curricular_units  # El valor seleccionado es el valor numérico correspondiente
+        curricular_units_option = [0, 2, 3, 6, 7, 13, 4, 1, 5, 19, 11, 8, 10, 9, 15, 12, 14, 18, 17, 16, 20]
+        curricular_units_option.sort()  # Ordenar la lista de forma ascendente
+        selected_curricular_units = st.selectbox(f"Selecciona el número de unidades curriculares acreditadas en el 1er semestre:", curricular_units_option)
+        value = selected_curricular_units  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 1st sem (enrolled)':  # Característica 'Curricular units 1st sem (enrolled)'
-    curricular_units_enrolled_option = [0, 6, 5, 7, 8, 1, 12, 10, 18, 9, 21, 3, 17, 16, 11, 14, 13, 2, 4, 15, 19, 23, 26]
-    curricular_units_enrolled_option.sort()  # Ordenar la lista de forma ascendente
-    selected_curricular_units_enrolled = st.selectbox(
+        curricular_units_enrolled_option = [0, 6, 5, 7, 8, 1, 12, 10, 18, 9, 21, 3, 17, 16, 11, 14, 13, 2, 4, 15, 19, 23, 26]
+        curricular_units_enrolled_option.sort()  # Ordenar la lista de forma ascendente
+        selected_curricular_units_enrolled = st.selectbox(
         f"Selecciona el número de unidades curriculares inscritas en el 1er semestre:", curricular_units_enrolled_option
-    )
-    value = selected_curricular_units_enrolled  # El valor seleccionado es el valor numérico correspondiente
+        )
+        value = selected_curricular_units_enrolled  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 1st sem (evaluations)':  # Característica 'Curricular units 1st sem (evaluations)'
-    curricular_units_evaluations_option = [0, 6, 8, 9, 10, 5, 7, 14, 12, 15, 13, 11, 1, 17, 18, 19, 21, 4, 16, 3, 24, 2, 22, 45,
+        curricular_units_evaluations_option = [0, 6, 8, 9, 10, 5, 7, 14, 12, 15, 13, 11, 1, 17, 18, 19, 21, 4, 16, 3, 24, 2, 22, 45,
                                            20, 26, 29, 36, 32, 23, 27, 31, 28, 25, 33]
-    curricular_units_evaluations_option.sort()  # Ordenar la lista de forma ascendente
-    selected_curricular_units_evaluations = st.selectbox(
+        curricular_units_evaluations_option.sort()  # Ordenar la lista de forma ascendente
+        selected_curricular_units_evaluations = st.selectbox(
         f"Selecciona el número de unidades curriculares evaluadas en el 1er semestre:", curricular_units_evaluations_option
-    )
-    value = selected_curricular_units_evaluations  # El valor seleccionado es el valor numérico correspondiente
+        )
+        value = selected_curricular_units_evaluations  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 1st sem (approved)':  # Característica 'Curricular units 1st sem (approved)'
-    curricular_units_approved_option = [0, 6, 5, 7, 4, 1, 3, 2, 8, 18, 10,
-                                        9, 21, 11, 13, 12, 16, 14,
+        curricular_units_approved_option = [0, 6, 5, 7, 4, 1, 3, 2, 8, 18, 10, 
+                                        9, 21, 11, 13, 12, 16, 14, 
                                         17, 19, 15, 20, 26]
-    curricular_units_approved_option.sort()  # Ordenar la lista de forma ascendente
-    selected_curricular_units_approved = st.selectbox(
+        curricular_units_approved_option.sort()  # Ordenar la lista de forma ascendente
+        selected_curricular_units_approved = st.selectbox(
         f"Selecciona el número de unidades curriculares aprobadas en el 1er semestre:", curricular_units_approved_option
-    )
-    value = selected_curricular_units_approved  # El valor seleccionado es el valor numérico correspondiente
+        )
+        value = selected_curricular_units_approved  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 1st sem (grade)':  # Característica 'Curricular units 1st sem (grade)'
-    # Campo para ingresar el promedio de calificaciones en el 1er semestre
-    average_grade = st.number_input(
-        "Ingresa el promedio de calificaciones en el 1er semestre (entre 0 y 20)",
-        min_value=0.0,  # Valor mínimo
-        max_value=20.0,  # Valor máximo
-        value=0.0,  # Valor inicial
-        step=0.01,  # Incremento de 0.01 para dos decimales
-        format="%.2f"  # Formato para mostrar dos decimales
-    )
-    value = average_grade  # El valor seleccionado es el promedio ingresado
+        # Campo para ingresar el promedio de calificaciones en el 1er semestre
+        average_grade = st.number_input(
+          "Ingresa el promedio de calificaciones en el 1er semestre (entre 0 y 20)",
+          min_value=0.0,  # Valor mínimo
+          max_value=20.0,  # Valor máximo
+          value=0.0,  # Valor inicial
+          step=0.01,  # Incremento de 0.01 para dos decimales
+          format="%.2f"  # Formato para mostrar dos decimales
+        )
+        value = average_grade  # El valor seleccionado es el promedio ingresado
     elif feature == 'Curricular units 1st sem (without evaluations)':  # Característica 'Curricular units 1st sem (without evaluations)'
-    selected_curricular_units_without_evaluations = st.selectbox(
-        "Selecciona el número de unidades curriculares en el 1er semestre (sin evaluaciones):",
-        curricular_units_without_evaluations_option
-    )
-    value = selected_curricular_units_without_evaluations  # El valor seleccionado es el valor numérico correspondiente
+        selected_curricular_units_without_evaluations = st.selectbox(
+          "Selecciona el número de unidades curriculares en el 1er semestre (sin evaluaciones):", 
+          curricular_units_without_evaluations_option
+        )
+        value = selected_curricular_units_without_evaluations  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 2nd sem (credited)':  # Característica 'Curricular units 2nd sem (credited)'
-    selected_curricular_units_credited = st.selectbox(
-        "Selecciona el número de unidades curriculares acreditadas en el 2do semestre:",
-        curricular_units_credited_values
-    )
-    value = selected_curricular_units_credited  # El valor seleccionado es el valor numérico correspondiente
+        selected_curricular_units_credited = st.selectbox(
+          "Selecciona el número de unidades curriculares acreditadas en el 2do semestre:", 
+          curricular_units_credited_values
+        )
+        value = selected_curricular_units_credited  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 2nd sem (enrolled)':  # Característica 'Curricular units 2nd sem (enrolled)'
-    selected_curricular_units_enrolled = st.selectbox(
-        "Selecciona el número de unidades curriculares matriculadas en el 2do semestre:",
-        curricular_units_enrolled_option
-    )
-    value = selected_curricular_units_enrolled  # El valor seleccionado es el valor numérico correspondiente
+        selected_curricular_units_enrolled = st.selectbox(
+          "Selecciona el número de unidades curriculares matriculadas en el 2do semestre:", 
+          curricular_units_enrolled_option
+        )
+        value = selected_curricular_units_enrolled  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 2nd sem (evaluations)':  # Característica 'Curricular units 2nd sem (evaluations)'
-    selected_curricular_units_evaluations = st.selectbox(
-        "Selecciona el número de unidades curriculares evaluadas en el 2do semestre:",
-        curricular_units_evaluations_option
-    )
-    value = selected_curricular_units_evaluations  # El valor seleccionado es el valor numérico correspondiente
+        selected_curricular_units_evaluations = st.selectbox(
+          "Selecciona el número de unidades curriculares evaluadas en el 2do semestre:", 
+          curricular_units_evaluations_option
+        )
+        value = selected_curricular_units_evaluations  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 2nd sem (approved)':  # Característica 'Curricular units 2nd sem (approved)'
-    selected_curricular_units_approved = st.selectbox(
-        "Selecciona el número de unidades curriculares aprobadas en el 2do semestre:",
-        curricular_units_approved_option
-    )
-    value = selected_curricular_units_approved  # El valor seleccionado es el valor numérico correspondiente
+        selected_curricular_units_approved = st.selectbox(
+          "Selecciona el número de unidades curriculares aprobadas en el 2do semestre:", 
+          curricular_units_approved_option
+        )
+        value = selected_curricular_units_approved  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Curricular units 2nd sem (grade)':  # Caso para promedio de 2º semestre
-    average_grade_2nd_sem = st.number_input(
-        "Ingresa el promedio de calificaciones en el 2º semestre (entre 0 y 20)",
-        min_value=0.0,
-        max_value=20.0,
-        value=0.0,
-        step=0.01,
-        format="%.2f"
-    )
+        average_grade_2nd_sem = st.number_input(
+          "Ingresa el promedio de calificaciones en el 2º semestre (entre 0 y 20)",
+          min_value=0.0, 
+          max_value=20.0, 
+          value=0.0, 
+          step=0.01, 
+          format="%.2f"
+        )
     elif feature == 'Curricular units 2nd sem (without evaluations)':  # Característica 'Curricular units 2nd sem (without evaluations)'
-    selected_curricular_units_without_evaluations = st.selectbox(
-        "Selecciona el número de unidades curriculares sin evaluaciones en el 2º semestre:",
-        curricular_units_without_evaluations_values
-    )
-    value = selected_curricular_units_without_evaluations  # El valor seleccionado es el valor numérico correspondiente
-    if feature == 'Unemployment rate':  # Caso para tasa de desempleo
-    unemployment_rate = st.number_input(
-        "Ingresa la tasa de desempleo (entre 5% y 20%)",
-        min_value=5.0,  # Valor mínimo
-        max_value=20.0,  # Valor máximo
-        value=5.0,  # Valor inicial
-        step=0.1,  # Incremento de 0.1 para permitir decimales
-        format="%.1f"  # Formato para mostrar un decimal
-    )
-    value = unemployment_rate  # El valor seleccionado es el valor numérico correspondiente
+        selected_curricular_units_without_evaluations = st.selectbox(
+          "Selecciona el número de unidades curriculares sin evaluaciones en el 2º semestre:", 
+          curricular_units_without_evaluations_values
+        )
+        value = selected_curricular_units_without_evaluations  # El valor seleccionado es el valor numérico correspondiente
+    elif feature == 'Unemployment rate':  # Caso para tasa de desempleo
+        unemployment_rate = st.number_input(
+          "Ingresa la tasa de desempleo (entre 5% y 20%)",
+          min_value=5.0,  # Valor mínimo
+          max_value=20.0,  # Valor máximo
+          value=5.0,  # Valor inicial
+          step=0.1,  # Incremento de 0.1 para permitir decimales
+          format="%.1f"  # Formato para mostrar un decimal
+        )
+        value = unemployment_rate  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'Inflation rate':  # Caso para tasa de inflación
-    inflation_rate = st.number_input(
-        "Ingresa la tasa de inflación (entre -1% y 10%)",
-        min_value=-1.0,  # Valor mínimo
-        max_value=10.0,  # Valor máximo
-        value=0.0,  # Valor inicial
-        step=0.1,  # Incremento de 0.1 para permitir decimales
-        format="%.1f"  # Formato para mostrar un decimal
-    )
-    value = inflation_rate  # El valor seleccionado es el valor numérico correspondiente
+        inflation_rate = st.number_input(
+          "Ingresa la tasa de inflación (entre -1% y 10%)",
+          min_value=-1.0,  # Valor mínimo
+          max_value=10.0,  # Valor máximo
+          value=0.0,  # Valor inicial
+          step=0.1,  # Incremento de 0.1 para permitir decimales
+          format="%.1f"  # Formato para mostrar un decimal
+        )
+        value = inflation_rate  # El valor seleccionado es el valor numérico correspondiente
     elif feature == 'GDP':  # Caso para tasa de PIB
-    gdp_rate = st.number_input(
-        "Ingresa la tasa de PIB (entre -5% y 10%)",
-        min_value=-5.0,  # Valor mínimo
-        max_value=10.0,  # Valor máximo
-        value=0.0,  # Valor inicial
-        step=0.1,  # Incremento de 0.1 para permitir decimales
-        format="%.1f"  # Formato para mostrar un decimal
-    )
-    value = gdp_rate  # El valor seleccionado es el valor numérico correspondiente
+        gdp_rate = st.number_input(
+          "Ingresa la tasa de PIB (entre -5% y 10%)",
+          min_value=-5.0,  # Valor mínimo
+          max_value=10.0,  # Valor máximo
+          value=0.0,  # Valor inicial
+          step=0.1,  # Incremento de 0.1 para permitir decimales
+          format="%.1f"  # Formato para mostrar un decimal
+        )
+        value = gdp_rate  # El valor seleccionado es el valor numérico correspondiente
 
 
     input_data.append(value)  # Agregar el valor ingresado al listado
-
 
 # Función para cargar los modelos
 def load_model(model_path):
@@ -697,11 +696,19 @@ else:
         prediction = model.predict(features)
         return prediction
 
-    # Hacer la predicción con el modelo seleccionado
-    model = models[selected_model]
+# Hacer la predicción con el modelo seleccionado
+model = models[selected_model]
 
-    # Realizar la predicción
-    prediction = predict_with_model(model, input_data_array)
+# Realizar la predicción
+prediction = predict_with_model(model, input_data_array)
 
-    # Mostrar el resultado
-    st.write(f"La predicción con el modelo {selected_model} es: {prediction[0]}")
+# Mostrar el resultado
+st.write(f"La predicción con el modelo {selected_model} es: {prediction[0]}")
+
+# Imprimir el mensaje correspondiente según el modelo seleccionado
+if selected_model == 'Random Forest':
+    st.write("Usted ha obtenido: F1 Score ponderado: 0.7630 con el modelo Random Forest")
+elif selected_model == 'XGBoost':
+    st.write("Usted ha obtenido: F1 Score ponderado: 0.7654 con el modelo XGBoost")
+elif selected_model == 'SVM':
+    st.write("Usted ha obtenido: F1-score ponderado: 0.7700, con SVM, el mejor modelo de clasificación")
