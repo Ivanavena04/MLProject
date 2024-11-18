@@ -423,9 +423,6 @@ def load_model(model_path):
         st.error(f"Error al cargar el modelo desde {model_path}: {str(e)}")
         return None
 
-# Clonar el repositorio desde GitHub
-!git clone https://github.com/Ivanavena04/MLProject
-
 # Ruta a los modelos
 svm_model = load_model('/content/MLProject/svm_model.joblib')
 xgb_model = load_model('/content/MLProject/xgb_model.joblib')
