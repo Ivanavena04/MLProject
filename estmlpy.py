@@ -414,7 +414,61 @@ gdp_rate = st.number_input(
     format="%.1f"  # Formato para mostrar un decimal
 )
 
-# Título y descripción de la aplicación
+# Función para cargar los modelos
+def load_model(model_path):
+    try:
+        model = joblib.load(model_path)
+        return model
+    except Exception as e:
+        st.error(f"Error al cargar el modelo desde {model_path}: {str(e)}")
+        return None
+
+# Clonar el repositorio desde GitHub
+!git clone https://github.com/Ivanavena04/MLProject
+
+# Ruta a los modelos
+svm_model = load_model('/content/MLProject/svm_model.joblib')
+xgb_model = load_model('/content/MLProject/xgb_model.joblib')
+rf_model = load_model('/content/MLProject/rf_model.joblib')
+
+# Asegurarse de que los modelos se hayan cargado correctamente
+models = {
+    'SVM': svm_model,
+    'XGBoost': xgb_model,
+    'Random Forest': rf_model
+}
+
+# Diccionario de características por modelo
+model_features = {
+    'SVM': [
+        'Curricular units 2nd sem (approved)', 'Curricular units 1st sem (approved)', 
+        'Curricular units 2nd sem (grade)', 'Tuition fees up to date_1', 'Curricular units 1st sem (grade)', 
+        'Debtor_1', 'Age', 'Curricular units 1st sem (evaluations)', 'Scholarship holder_1', 
+        'Curricular units 2nd sem (evaluations)', 'Curricular units 2nd sem (credited)', 
+        'Curricular units 1st sem (credited)', 'Curricular units 1st sem (enrolled)', 
+        'Curricular units 2nd sem (without evaluations)', 'Curricular units 2nd sem (enrolled)', 
+        'Application mode', 'Nationality', 'Course', 'Curricular units 1st sem (without evaluations)', 
+        'Displaced_1'
+    ],
+    'XGBoost': [
+        'Curricular units 2nd sem (approved)', 'Tuition fees up to date_1', 
+        'Educational special needs_1', 'Marital status', 'Curricular units 1st sem (approved)', 
+        'Curricular units 1st sem (evaluations)', 'Curricular units 2nd sem (enrolled)', 
+        'Curricular units 2nd sem (evaluations)', 'Age'
+    ],
+    'Random Forest': [
+        'Curricular units 2nd sem (approved)', 'Curricular units 2nd sem (grade)', 
+        'Curricular units 1st sem (approved)', 'Curricular units 1st sem (grade)', 
+        'Curricular units 2nd sem (evaluations)', 'Curricular units 1st sem (evaluations)', 
+        'Age', 'Tuition fees up to date_1', 'Mothers occupation', 'Course', 
+        'Application mode', 'Unemployment rate', 'Inflation rate', 'GDP', 
+        'Fathers occupation', 'Mothers qualification', 'Fathers qualification', 
+        'Curricular units 2nd sem (enrolled)', 'Application order', 'Curricular units 1st sem (enrolled)', 
+        'Debtor_1', 'Gender_1'
+    ]
+}
+
+# Título de la aplicación
 st.title("Modelos de Clasificación de estudiantes para Enrolled, Graduate o Dropout")
 st.write("Esta aplicación utiliza 3 modelos de Machine Learning: SVM, XGBoost y Random Forest")
 
@@ -424,61 +478,6 @@ selected_model = st.selectbox('Selecciona el modelo a utilizar:', model_options)
 
 # Mostrar el modelo seleccionado
 st.write(f"Has seleccionado el modelo: {selected_model}")
-
-# Diccionario de características por modelo
-model_features = {
-    'SVM': ['Curricular units 2nd sem (approved)',
-'Curricular units 1st sem (approved)',
-'Curricular units 2nd sem (grade)',
-'Tuition fees up to date_1',
-'Curricular units 1st sem (grade)',
-'Debtor_1',
-'Age',
-'Curricular units 1st sem (evaluations)',
-'Scholarship holder_1',
-'Curricular units 2nd sem (evaluations)',
-'Curricular units 2nd sem (credited)',
-'Curricular units 1st sem (credited)',
-'Curricular units 1st sem (enrolled)',
-'Curricular units 2nd sem (without evaluations)',
-'Curricular units 2nd sem (enrolled)',
-'Application mode',
-'Nationality',
-'Course',
-'Curricular units 1st sem (without evaluations)',
-'Displaced_1'],
-    'XGBoost': ['Curricular units 2nd sem (approved)',
-'Tuition fees up to date_1',
-'Educational special needs_1',
-'Marital status',
-'Curricular units 1st sem (approved)',
-'Curricular units 1st sem (evaluations)',
-'Curricular units 2nd sem (enrolled)',
-'Curricular units 2nd sem (evaluations)',
-'Age'],
-    'Random Forest': ['Curricular units 2nd sem (approved)',
-'Curricular units 2nd sem (grade)',
-'Curricular units 1st sem (approved)',
-'Curricular units 1st sem (grade)',
-'Curricular units 2nd sem (evaluations)',
-'Curricular units 1st sem (evaluations)',
-'Age',
-'Tuition fees up to date_1',
-'Mothers occupation',
-'Course',
-'Application mode',
-'Unemployment rate',
-'Inflation rate',
-'GDP',
-'Fathers occupation',
-'Mothers qualification',
-'Fathers qualification',
-'Curricular units 2nd sem (enrolled)',
-'Application order',
-'Curricular units 1st sem (enrolled)',
-'Debtor_1',
-'Gender_1']
-}
 
 # Solicitar entrada de características al usuario
 st.write("Ingresa los valores de las características:")
@@ -658,57 +657,32 @@ for feature in model_features[selected_model]:
           step=0.1,  # Incremento de 0.1 para permitir decimales
           format="%.1f"  # Formato para mostrar un decimal
         )
-        value = gdp_rate  # El valor seleccionado es el valor numérico correspondiente
 
+# Botón para realizar la predicción
+if st.button("Realizar Predicción"):
+    
+    # Crear un diccionario para asegurarte de que tienes todas las características con valores predeterminados
+    input_data_dict = {feature: input_data.get(feature, 0) for feature in model_features[selected_model]}
+    
+    # Convertir el diccionario a un array en el orden de expected_features
+    input_data_array = np.array([input_data_dict[feature] for feature in model_features[selected_model]]).reshape(1, -1)
 
-    input_data.append(value)  # Agregar el valor ingresado al listado
+    # Obtener el modelo seleccionado
+    model = models[selected_model]
 
-# Función para cargar los modelos
-def load_model(model_path):
-    try:
-        model = joblib.load(model_path)
-        return model
-    except Exception as e:
-        st.error(f"Error al cargar el modelo desde {model_path}: {str(e)}")
-        return None
+    # Realizar la predicción
+    prediction = predict_with_model(model, input_data_array, selected_model)
 
-# Ruta a los modelos
-svm_model = load_model('/content/MLProject/svm_model.joblib')
-xgb_model = load_model('/content/MLProject/xgb_model.joblib')
-rf_model = load_model('/content/MLProject/rf_model.joblib')
-
-# Asegurarse de que los modelos se hayan cargado correctamente
-models = {
-    'SVM': svm_model,
-    'XGBoost': xgb_model,
-    'Random Forest': rf_model
-}
-
-# Verificar si el modelo seleccionado está disponible
-if selected_model not in models or models[selected_model] is None:
-    st.error("El modelo seleccionado no está disponible o no se ha cargado correctamente.")
-else:
-    # Convertir input_data a un formato adecuado para el modelo (normalmente un array 2D)
-    input_data_array = np.array(input_data).reshape(1, -1)
-
-    # Función para hacer la predicción con el modelo seleccionado
-    def predict_with_model(model, features):
-        prediction = model.predict(features)
-        return prediction
-
-# Hacer la predicción con el modelo seleccionado
-model = models[selected_model]
-
-# Realizar la predicción
-prediction = predict_with_model(model, input_data_array)
-
-# Mostrar el resultado
-st.write(f"La predicción con el modelo {selected_model} es: {prediction[0]}")
-
-# Imprimir el mensaje correspondiente según el modelo seleccionado
-if selected_model == 'Random Forest':
-    st.write("Usted ha obtenido: F1 Score ponderado: 0.7630 con el modelo Random Forest")
-elif selected_model == 'XGBoost':
-    st.write("Usted ha obtenido: F1 Score ponderado: 0.7654 con el modelo XGBoost")
-elif selected_model == 'SVM':
-    st.write("Usted ha obtenido: F1-score ponderado: 0.7700, con SVM, el mejor modelo de clasificación")
+    if prediction is not None:
+        st.write(f"La predicción con el modelo {selected_model} es: {prediction[0]}")
+        
+        # Mostrar el resultado final según el modelo seleccionado
+        if selected_model == 'Random Forest':
+            st.write("Usted ha obtenido: F1 Score ponderado: 0.7630 con el modelo Random Forest")
+        elif selected_model == 'XGBoost':
+            st.write("Usted ha obtenido: F1 Score ponderado: 0.7654 con el modelo XGBoost")
+        elif selected_model == 'SVM':
+            st.write("Usted ha obtenido: F1-score ponderado: 0.7700, con SVM, el mejor modelo de clasificación")
+        
+    else:
+        st.write("Hubo un error al realizar la predicción.")
