@@ -423,10 +423,10 @@ def load_model(model_path):
         st.error(f"Error al cargar el modelo desde {model_path}: {str(e)}")
         return None
 
-# Ruta a los modelos
-svm_model = load_model('/content/MLProject/svm_model.joblib')
-xgb_model = load_model('/content/MLProject/xgb_model.joblib')
-rf_model = load_model('/content/MLProject/rf_model.joblib')
+# Ruta a los modelos (ajusta según la ubicación real)
+svm_model = joblib.load('MLProject/svm_model.joblib')
+xgb_model = joblib.load('MLProject/xgb_model.joblib')
+rf_model = joblib.load('MLProject/rf_model.joblib')
 
 # Asegurarse de que los modelos se hayan cargado correctamente
 models = {
